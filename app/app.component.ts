@@ -20,17 +20,6 @@ const HEROES: Hero[] = [
     selector: 'my-app',
     template: `
         <h1 class="text-primary">{{title}}</h1>
-        <div class="selectedHero" *ngIf="selectedHero">
-            <h2>{{selectedHero.name}} details!</h2>
-            <div>
-                <label>id: </label>{{selectedHero.id}}
-            </div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="selectedHero.name" placeholder="name">
-            </div>
-        </div>
-
 
         <h2>My Heroes</h2>
         <ul class="heroes nav nav-pills nav-stacked">
@@ -42,14 +31,10 @@ const HEROES: Hero[] = [
                 <a href="#">{{hero.name}}</a>
             </li>
         </ul>
-    `,
-    styles: [`
-        .heroes span{
-            color: green;
-        }
-    `]
-})
 
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    `
+})
 export class AppComponent {
     title = 'Tour of Heroes';
     heroes = HEROES;
@@ -61,3 +46,4 @@ export class AppComponent {
     }
 
 }
+
